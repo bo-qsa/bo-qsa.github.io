@@ -170,16 +170,21 @@
 
 <div class="has-text-centered" style="padding: 0 1em;">
   <img src="./static/images/overview.pdf"/>
-  <div class="content has-text-justified">
-    <p>
-      We proposed methods for  
-    (1) initializing Slot-Attention modules with learnable queries and (2) optimizing 
-    the model with bi-level optimization. With simple code adjustments on the 
-    vanilla Slot-Attention, our model, Bi-level Optimized Query Slot Attention, 
-    achieves state-of-the-art re- sults on 3 challenging synthetic and 7 complex 
-    real-world datasets in unsupervised image segmentation and reconstruction, 
-    outperforming previous baselines by a large margin.
-    </p>
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <div class="content has-text-justified">
+          <p>
+            We proposed methods for (1) initializing Slot-Attention modules with learnable queries and (2) optimizing 
+            the model with bi-level optimization. With simple code adjustments on the 
+            vanilla Slot-Attention, our model, Bi-level Optimized Query Slot Attention, 
+            achieves state-of-the-art re- sults on 3 challenging synthetic and 7 complex 
+            real-world datasets in unsupervised image segmentation and reconstruction, 
+            outperforming previous baselines by a large margin.
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -208,7 +213,6 @@
             our model exhibits great potential for concept binding and zero-shot learning. 
             We hope our effort could provide a single home for the design and learning of 
             slot-based models and pave the way for more challenging tasks in object-centric learning.
-
           </p>
         </div>
       </div>
@@ -296,34 +300,6 @@
     </div>
     <!--/ Results. -->
 
-
-    <!-- Concurrent Work. -->
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Related Links</h2>
-
-        <div class="content has-text-justified">
-          <p>
-            There's a lot of excellent work that was introduced around the same time as ours.
-          </p>
-          <p>
-            <a href="https://arxiv.org/abs/2104.09125">Progressive Encoding for Neural Optimization</a> introduces an idea similar to our windowed position encoding for coarse-to-fine optimization.
-          </p>
-          <p>
-            <a href="https://www.albertpumarola.com/research/D-NeRF/index.html">D-NeRF</a> and <a href="https://gvv.mpi-inf.mpg.de/projects/nonrigid_nerf/">NR-NeRF</a>
-            both use deformation fields to model non-rigid scenes.
-          </p>
-          <p>
-            Some works model videos with a NeRF by directly modulating the density, such as <a href="https://video-nerf.github.io/">Video-NeRF</a>, <a href="https://www.cs.cornell.edu/~zl548/NSFF/">NSFF</a>, and <a href="https://neural-3d-video.github.io/">DyNeRF</a>
-          </p>
-          <p>
-            There are probably many more by the time you are reading this. Check out <a href="https://dellaert.github.io/NeRF/">Frank Dellart's survey on recent NeRF papers</a>, and <a href="https://github.com/yenchenlin/awesome-NeRF">Yen-Chen Lin's curated list of NeRF papers</a>.
-          </p>
-        </div>
-      </div>
-    </div>
-    <!--/ Concurrent Work. -->
-
   </div>
 </section>
 
@@ -331,47 +307,16 @@
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@article{park2021nerfies,
-  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
-  title     = {Nerfies: Deformable Neural Radiance Fields},
-  journal   = {ICCV},
-  year      = {2021},
-}</code></pre>
+    <pre><code>@article{jia2022egotaskqa,
+      title = {Unsupervised Object-Centric Learning with Bi-Level Optimized Query Slot Attention},
+      author = {Jia, Baoxiong and Liu, Yu and Huang, Siyuan},
+      journal = {arXiv preprint arXiv:2210.08990},
+      year = {2022}
+  }</code></pre>
   </div>
 </section>
 
 
-<footer class="footer">
-  <div class="container">
-    <div class="content has-text-centered">
-      <a class="icon-link"
-         href="./static/videos/nerfies_paper.pdf">
-        <i class="fas fa-file-pdf"></i>
-      </a>
-      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
-        <i class="fab fa-github"></i>
-      </a>
-    </div>
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
-          <p>
-            This website is licensed under a <a rel="license"
-                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
-          <p>
-            This means you are free to borrow the <a
-              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
-            we just ask that you link back to this page in the footer.
-            Please remember to remove the analytics code included in the header of the website which
-            you do not want on your website.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</footer>
 
 </body>
 </html>
