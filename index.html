@@ -169,7 +169,7 @@
 </section>
 
 <div class="has-text-centered" style="padding: 0 1em;">
-  <img src="./static/images/overview.png">
+  <img src="./static/images/overview.png" width="1000">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
@@ -178,9 +178,8 @@
             We proposed methods for (1) initializing Slot-Attention modules with learnable queries and (2) optimizing 
             the model with bi-level optimization. With simple code adjustments on the 
             vanilla Slot-Attention, our model, Bi-level Optimized Query Slot Attention, 
-            achieves state-of-the-art re- sults on 3 challenging synthetic and 7 complex 
-            real-world datasets in unsupervised image segmentation and reconstruction, 
-            outperforming previous baselines by a large margin.
+            achieves state-of-the-art results on 3 challenging synthetic and 7 complex real-world datasets in 
+            unsupervised image segmentation and reconstruction, outperforming previous baselines by a large margin.
           </p>
         </div>
       </div>
@@ -196,23 +195,22 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            The ability to decompose complex natural scenes into meaningful object-centric 
-            abstractions lies at the core of human perception and reasoning. In the recent 
-            culmination of unsupervised object-centric learning, the Slot-Attention module 
-            has played an important role with its simple yet effective design and fostered 
-            many powerful variants. These methods, however, have been exceedingly difficult 
-            to train without supervision and are ambiguous in the notion of object, especially 
-            for complex natural scenes. In this paper, we propose to address these issues by 
-            (1) initializing Slot-Attention modules with learnable queries and (2) optimizing 
-            the model with bi-level optimization. With simple code adjustments on the 
-            vanilla Slot-Attention, our model, Bi-level Optimized Query Slot Attention, 
-            achieves state-of-the-art re- sults on 3 challenging synthetic and 7 complex 
-            real-world datasets in unsupervised image segmentation and reconstruction, 
-            outperforming previous baselines by a large margin. We provide thorough ablative 
-            studies to validate the necessity and effectiveness of our design. Additionally, 
-            our model exhibits great potential for concept binding and zero-shot learning. 
-            We hope our effort could provide a single home for the design and learning of 
-            slot-based models and pave the way for more challenging tasks in object-centric learning.
+            The ability to decompose complex natural scenes into meaningful object-centric abstractions 
+            lies at the core of human perception and reasoning. In the recent culmina- tion of 
+            unsupervised object-centric learning, the Slot-Attention module has played an important 
+            role with its simple yet effective design and fostered many powerful variants. 
+            These methods, however, have been exceedingly difficult to train without supervision and 
+            are ambiguous in the notion of object, especially for complex natu- ral scenes. In this paper, 
+            we propose to address these issues by improving previous attempts that leverage bi-level optimization 
+            in Slot-Attention with learnable query initializations and straight-through gradient updates. 
+            With simple code adjustments on Slot-Attention, our model, Bi-level Optimized Query Slot Attention, 
+            achieves state-of-the-art results on 3 challenging synthetic and 7 complex real-world datasets in 
+            unsupervised image segmentation and reconstruction, outperforming previous baselines by a large margin. 
+            We provide thorough ablative studies to validate the necessity and effectiveness of our design. 
+            Additionally, our model exhibits great potential for concept binding and zero-shot learning. 
+            We hope our effort could provide a single home for the design and learning of slot-based models and 
+            pave the way for more challenging tasks in object-centric learning. Our work is made publicly available 
+            at: https://bo-qsa.github.io
           </p>
         </div>
       </div>
@@ -239,44 +237,47 @@
     <!-- Results. -->
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3">Results</h2>
-
-        <!-- Interpolating. -->
-        <h3 class="title is-4">Interpolating states</h3>
-        <div class="content has-text-justified">
-          <p>
-            We can also animate the scene by interpolating the deformation latent codes of two input
-            frames. Use the slider here to linearly interpolate between the left frame and the right
-            frame.
-          </p>
-        </div>
-        <div class="columns is-vcentered interpolation-panel">
-          <div class="column is-3 has-text-centered">
-            <img src="./static/images/interpolate_start.jpg"
-                 class="interpolation-image"
-                 alt="Interpolate start reference image."/>
-            <p>Start Frame</p>
+        <!-- Quantitative Results. -->
+        <hr>
+        <div id="results" class="content-block">
+          <h2 class="sub-title has-text-centered">Quantitative Results</h2>
+          <div class="content has-text-justified">
+            <p>
+              We demonstrate results on 3 challenging synthetic and 7 complex real-world datasets.
+            </p>
           </div>
-          <div class="column interpolation-video-column">
-            <div id="interpolation-image-wrapper">
-              Loading...
+          <div class="task">
+            <div class="columns is-centered" style="position: relative;">
+              <div class="control" style="position: absolute; left: 3%;">
+                <label class="radio">
+                  <input value="MPH1Library" type="radio" name="scene"> MPH1Library
+                </label>
+                <br>
+                <label class="radio">
+                  <input value="MPH16" type="radio" name="scene"> MPH16
+                </label>
+                <br>
+                <label class="radio">
+                  <input value="N0SittingBooth" type="radio" name="scene"> N0SittingBooth
+                </label>
+                <br>
+                <label class="radio">
+                  <input value="N3OpenArea" type="radio" name="scene"> N3OpenArea
+                </label>
+              </div>
+              <div id="pose_loading" style="position: absolute; left: 50%; top: 45%;"></div>
+              <canvas id="webgl_pose" style="height: 50%; width: 50%;"></canvas>
             </div>
-            <input class="slider is-fullwidth is-large is-info"
-                   id="interpolation-slider"
-                   step="1" min="0" max="100" value="0" type="range">
-          </div>
-          <div class="column is-3 has-text-centered">
-            <img src="./static/images/interpolate_end.jpg"
-                 class="interpolation-image"
-                 alt="Interpolation end reference image."/>
-            <p class="is-bold">End Frame</p>
+            <p style="margin: 0 1.5em; font-size: 0.8em; text-align:justify;">Note: Click the radio button to select a scene for result visualization and drag to move your view around.</p>
           </div>
         </div>
-        <br/>
-        <!--/ Interpolating. -->
 
-        <!-- Re-rendering. -->
-        <h3 class="title is-4">Re-rendering the input video</h3>
+        <hr>
+        <br/>
+        <!--/ Quantitative Results. -->
+
+        <!-- Qualitative Results. -->
+        <h3 class="title is-4">Qualitative Results</h3>
         <div class="content has-text-justified">
           <p>
             Using <span class="dnerf">Nerfies</span>, you can re-render a video from a novel
@@ -294,7 +295,7 @@
                     type="video/mp4">
           </video>
         </div>
-        <!--/ Re-rendering. -->
+        <!--/ Qualitative Results. -->
 
       </div>
     </div>
