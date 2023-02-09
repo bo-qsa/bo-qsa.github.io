@@ -1,99 +1,80 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
   <meta charset="utf-8">
-  <meta name="description"
-        content="BO-QSA: Improving Unsupervised Object-centric Learning with Query Optimization.">
+  <title>BO-QSA</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>BO-QSA: Improving Unsupervised Object-centric Learning with Query Optimization</title>
-
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P3G1ECKGSH"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-P3G1ECKGSH');
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <style>
+    body {
+      background-color: #fafafa;
+    }
+    hr {
+      background-color: #f1f1f1;
+    }
+    .table th {
+      padding: 0.2em 0.2em 0 0.2em;
+      width: 50%;
+    }
+    .table td {
+      padding: 0.25em;
+      width: 50%;
+    }
+    .content-block {
+      padding: 0 6px;
+    }
+    .title {
+      font-size: 32px;
+      padding-top: 32px;
+    }
+    .publisher {
+      margin-bottom: 1rem;
+    }
+    .sub-title {
+      font-size: 26px;
+      padding-bottom: 16px;
+    }
+    .subsub-title {
+      font-size: 20px;
+      padding-bottom: 8px;
+    }
+    .author {
+      font-size: 16px;
+    }
+    .task {
+      padding-bottom: 12px;
+    }
+  </style>
+  <script type="importmap">
+    {
+      "imports": {
+        "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js",
+        "three": "https://unpkg.com/three@0.127.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.127.0/examples/jsm/"
+      }
+    }
   </script>
-
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-        rel="stylesheet">
-
-  <link rel="stylesheet" href="./static/css/bulma.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
-  <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" href="./static/css/index.css">
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="./static/js/fontawesome.all.min.js"></script>
-  <script src="./static/js/bulma-carousel.min.js"></script>
-  <script src="./static/js/bulma-slider.min.js"></script>
-  <script src="./static/js/index.js"></script>
 </head>
+
 <body>
+  <div id="app">
+    <div class="columns">
+      <div class="column" :class="[content, offset]">
 
-<!-- <nav class="navbar" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
-  </div>
-  <div class="navbar-menu">
-    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-      <a class="navbar-item" href="https://yuliu.com">
-      <span class="icon">
-          <i class="fas fa-home"></i>
-      </span>
-      </a>
+        <h1 class="title has-text-centered" style="margin-bottom: 0.5em">
+            Improving Unsupervised Object-centric Learning with Query Optimization
+        </h1>
 
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-          More Research
-        </a>
-        <div class="navbar-dropdown">
-          <a class="navbar-item" href="https://hypernerf.github.io">
-            HyperNeRF
-          </a>
-          <a class="navbar-item" href="https://nerfies.github.io">
-            Nerfies
-          </a>
-          <a class="navbar-item" href="https://latentfusion.github.io">
-            LatentFusion
-          </a>
-          <a class="navbar-item" href="https://photoshape.github.io">
-            PhotoShape
-          </a>
-        </div>
-      </div>
-    </div>
+        <!-- <p class="publisher has-text-centered">Conference</p> -->
 
-  </div>
-</nav> -->
+        <div class="has-text-centered" style="padding: 0 2em;">
 
-
-<section class="hero">
-  <div class="hero-body">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column has-text-centered">
-          <h1 class="title has-text-centered" style="margin-bottom: 0.5em">
-            BO-QSA: Improving Unsupervised Object-centric Learning with Query Optimization
-          </h1>
-          <div class="is-size-5 publication-authors">
-            <span class="author-block">
-              <a href="https://buzz-beater.github.io">Baoxiong Jia✶</a><sup>1,3</sup>,</span>
-            <span class="author-block">
-              <a href="https://yuliu.com">Yu Liu✶</a><sup>2,3</sup>,</span>
-            <span class="author-block">
-              <a href="https://siyuanhuang.com">Siyuan Huang</a><sup>3</sup>,
-            </span>
-          </div>
+          <p class="author">
+            <a href="https://buzz-beater.github.io/">Baoxiong Jia*</a><sup>1,3</sup><br>
+            <a href="https://yuliu.com">Yu Liu✶</a><sup>2,3</sup>,</span>
+            <a href="https://siyuanhuang.com/">Siyuan Huang</a><sup>3</sup> &nbsp;&nbsp;&nbsp;
+          </p>
 
           <p style="font-size: 0.9em; padding: 0.5em 0;">✶ indicates equal contribution</p>
 
@@ -103,72 +84,14 @@
             <sup>3</sup>Beijing Institute for General Artificial Intelligence (BIGAI)<br>
           </p>
 
-          <div class="column has-text-centered">
-            <div class="publication-links">
-              <!-- PDF Link. -->
-              <span class="link-block">
-                <a href="https://arxiv.org/pdf/2210.08990.pdf"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
-                  </span>
-                  <span>Paper</span>
-                </a>
-              </span>
-              <span class="link-block">
-                <a href="https://arxiv.org/abs/2210.08990"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span>
-                </a>
-              </span>
-              <!-- Video Link. -->
-              <span class="link-block">
-                <a href=""
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-youtube"></i>
-                  </span>
-                  <span>Video</span>
-                </a>
-              </span>
-              <!-- Code Link. -->
-              <span class="link-block">
-                <a href="https://github.com/YuLiu-LY/BO-QSA"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-github"></i>
-                  </span>
-                  <span>Code</span>
-                  </a>
-              </span>
-              <!-- Dataset Link. -->
-              <!-- <span class="link-block">
-                <a href="https://github.com/google/nerfies/releases/tag/0.1"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="far fa-images"></i>
-                  </span>
-                  <span>Data</span>
-                  </a> -->
-            </div>
-
+          <div style="margin: 1em 0; font-size: 1.1em;">
+            <p> <a href="https://arxiv.org/abs/2301.06015">arXiv</a> &nbsp;|&nbsp; <a href="https://github.com/scenediffuser/Scene-Diffuser">Code</a> &nbsp;|&nbsp; <a href="https://huggingface.co/spaces/SceneDiffuser/SceneDiffuserDemo">Huggingface Space</a></p>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<div class="has-text-centered" style="padding: 0 1em;">
-  <img src="./static/images/overview.png" width="1000">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <div class="content has-text-justified">
-          <p>
+        <div class="has-text-centered" style="padding: 0 1em;">
+          <img src="./static/images/overview.png"/>
+          <p style="text-align: justify; font-size: 0.8em;">
             We proposed methods for (1) initializing Slot-Attention modules with learnable queries and (2) optimizing 
             the model with bi-level optimization. With simple code adjustments on the 
             vanilla Slot-Attention, our model, Bi-level Optimized Query Slot Attention, 
@@ -176,19 +99,12 @@
             unsupervised image segmentation and reconstruction, outperforming previous baselines by a large margin.
           </p>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
 
-<section class="section">
-  <div class="container is-max-desktop">
-    <!-- Abstract. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
+        <hr>
+
+        <div class="has-text-centered content-block">
+          <h2 class="sub-title">Abstract</h2>
+            <p style="text-align:justify; margin-bottom: 1.5em;">
             The ability to decompose complex natural scenes into meaningful object-centric abstractions 
             lies at the core of human perception and reasoning. In the recent culmina- tion of 
             unsupervised object-centric learning, the Slot-Attention module has played an important 
@@ -204,143 +120,241 @@
             Additionally, our model exhibits great potential for concept binding and zero-shot learning. 
             We hope our effort could provide a single home for the design and learning of slot-based models and 
             pave the way for more challenging tasks in object-centric learning.
-          </p>
-        </div>
-      </div>
-    </div>
-    <!--/ Abstract. -->
-
-    <!-- Paper video. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Video</h2>
-        <div class="publication-video">
-          <iframe src=""
-                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        </div>
-      </div>
-    </div>
-    <!--/ Paper video. -->
-  </div>
-</section>
-
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <!-- Results. -->
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <!-- Quantitative Results. -->
-        <!-- <hr>
-        <div id="results" class="content-block">
-          <h2 class="sub-title has-text-centered">Quantitative Results</h2>
-          <div class="content has-text-justified">
-            <p>
-              We demonstrate results on 3 challenging synthetic and 7 complex real-world datasets.
             </p>
-          </div>
-          <div class="task">
-            <div class="columns is-centered" style="position: relative;">
-              <div class="control" style="position: absolute; left: 3%;">
-                <label class="radio">
-                  <input value="MPH1Library" type="radio" name="scene"> MPH1Library
-                </label>
-                <br>
-                <label class="radio">
-                  <input value="MPH16" type="radio" name="scene"> MPH16
-                </label>
-                <br>
-                <label class="radio">
-                  <input value="N0SittingBooth" type="radio" name="scene"> N0SittingBooth
-                </label>
-                <br>
-                <label class="radio">
-                  <input value="N3OpenArea" type="radio" name="scene"> N3OpenArea
-                </label>
+          <video controls="controls" loop="loop" autoplay="autoplay" style="padding: 0 5em;">
+            <source src="./assets/illustration-720.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <hr>
+
+        <div id="results" class="content-block">
+            <h2 class="sub-title has-text-centered">Results for real-world multi-object datasets</h2>
+  
+            <div class="task">
+              <div class="columns is-centered" style="position: relative;">
+                <div class="control" style="position: absolute; left: 3%;">
+                  <label class="radio">
+                    <input value="Birds" type="radio" name="scene"> Birds
+                  </label>
+                  <br>
+                  <label class="radio">
+                    <input value="COCO" type="radio" name="scene"> COCO
+                  </label>
+                  <br>
+                  <label class="radio">
+                    <input value="YCB" type="radio" name="scene"> YCB
+                  </label>
+                  <br>
+                  <label class="radio">
+                    <input value="ScanNet" type="radio" name="scene"> ScanNet
+                  </label>
+                </div>
+                <div id="pose_loading" style="position: absolute; left: 50%; top: 45%;"></div>
+                <img poster="" src="./static/images/birds.png" id="birds" height="100%"></img>
               </div>
-              <div id="pose_loading" style="position: absolute; left: 50%; top: 45%;"></div>
-              <canvas id="webgl_pose" style="height: 50%; width: 50%;"></canvas>
+              <p style="margin: 0 1.5em; font-size: 0.8em; text-align:justify;">Note: Click the radio button to select a dataset for result visualization.</p>
             </div>
-            <p style="margin: 0 1.5em; font-size: 0.8em; text-align:justify;">Note: Click the radio button to select a scene for result visualization and drag to move your view around.</p>
+          </div>
+
+        <hr>
+
+        <div class="has-text-centered content-block">
+          <h2 class="sub-title">Bibtex</h2>
+          <p style="text-align:justify">If you find our project useful, please consider citing us:</p>
+          <div style="padding-top: 1rem; text-align: left;">
+<pre><code>
+    @article{jia2022unsupervised,
+        title={Unsupervised Object-Centric Learning with Bi-Level Optimized Query Slot Attention},
+        author={Jia, Baoxiong and Liu, Yu and Huang, Siyuan},
+        journal={arXiv preprint arXiv:2210.08990},
+        year={2022}
+      }
+</code></pre>
           </div>
         </div>
 
-        <hr> -->
-        <br/>
-        <!--/ Quantitative Results. -->
-
-        <!-- Qualitative Results. -->
-        <h2 class="title is-4">Qualitative Results</h2>
-        <section class="hero is-dark is-small">
-          <div class="hero-body">
-            <div class="container has-text-centered">
-              <div id="results-carousel" class="carousel results-carousel">
-
-                <div>
-                  <div class="results-item">
-                    <img poster="" src="./static/images/birds.png" id="birds" height="100%">
-                    </img>
-                  </div>
-                </div>
-
-                <div>
-                  <div class="results-item">
-                    <img poster="" src="./static/images/coco.png" id="coco" height="100%">
-                    </img>
-                  </div>
-                </div>
-
-                <div>
-                  <div class="results-item">
-                    <img poster="" src="./static/images/ycb.png" id="ycb" height="100%">
-                    </img>
-                  </div>
-                </div>
-
-                <div>
-                  <div class="results-item">
-                    <img poster="" src="./static/images/scannet.png" id="scannet" height="100%">
-                    </img>
-                  </div>
-                </div>
-    
-        
-              </div>
-        
-              <div class="columns is-centered has-text-centered">
-                <div class="column is-three-quarters">
-                  <p>
-                    Here we show results predicted by our model. 
-                    Click on the arrows or drag to see more results.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <!--/ Qualitative Results. -->
-
       </div>
     </div>
-    <!--/ Results. -->
-
+    
+    <footer class="footer" style="padding: 0 0 1.5rem 0">
+      <div class="columns">
+        <div class="column" :class="[content, offset]">
+          <hr>
+          <p class="has-text-centered" style="font-size: 0.9em;">This website uses the template from <a href="https://scenediffuser.github.io">SceneDiffuser</a>. Please use <b>chrome</b> for best experience. </p>
+        </div>
+      </div>
+    </footer>
   </div>
-</section>
-
-
-<section class="section" id="BibTeX">
-  <div class="container is-max-desktop content">
-    <h2 class="title">BibTeX</h2>
-    <pre><code>@article{jia2022egotaskqa,
-      title = {Unsupervised Object-Centric Learning with Bi-Level Optimized Query Slot Attention},
-      author = {Jia, Baoxiong and Liu, Yu and Huang, Siyuan},
-      journal = {arXiv preprint arXiv:2210.08990},
-      year = {2022}
-  }</code></pre>
-  </div>
-</section>
-
-
-
 </body>
+
+<script type="module">
+  import { createApp } from 'vue'
+
+  let app = createApp({
+    data() {
+      return {
+        content: 'is-6',
+        offset: 'is-offset-3'
+      }
+    }
+  }).mount('#app')
+
+  function displayWindowSize() {
+    let w = document.documentElement.clientWidth;
+    // console.log(w)
+    let c
+    let o
+    if (w >= 1200) {
+      c = 'is-6'
+      o = 'is-offset-3'
+    } else {
+      if (w >= 900) {
+        c = 'is-8'
+        o = 'is-offset-2'
+      } else {
+        c = 'is-10'
+        o = 'is-offset-1'
+      }
+    }
+    app.$data.content = c
+    app.$data.offset = o
+  }
+  window.addEventListener("resize", displayWindowSize)
+  displayWindowSize()
+
+  import * as THREE from 'three'
+  import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
+  import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js'
+
+  // pose generation in 3D scene
+  let canvas1 = document.querySelector('#webgl_pose')
+  let scene1 = new THREE.Scene()
+  let assetLoader1 = new GLTFLoader()
+  let model1
+
+  let camera1 = new THREE.PerspectiveCamera(45, 1.618 / 1.0, 0.1, 100)
+  camera1.position.set(4, 3, -3)
+  let grid1 = new THREE.GridHelper(30, 30)
+  scene1.add(camera1)
+  scene1.add(grid1)
+  for (let i = 0; i <= 1; i++) {
+    for (let k = 0; k <= 1; k++) {
+      let spotLight = new THREE.SpotLight(0xAAAAAA)
+      spotLight.position.set(50 * (i * 2 - 1), 100, 100 * (k * 2 - 1))
+      scene1.add(spotLight)
+    }
+  }
+
+  let controls1 = new OrbitControls(camera1, canvas1)
+  controls1.enableZoom = true
+  // controls2.enableDamping = true
+  controls1.object.position.set(camera1.position.x, camera1.position.y, camera1.position.z)
+  controls1.target = new THREE.Vector3(0, 0, 0)
+  controls1.update()
+
+  let renderer1 = new THREE.WebGLRenderer({
+      canvas: canvas1,
+      alpha: true,
+  })
+  renderer1.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+  renderer1.outputEncoding = THREE.sRGBEncoding
+  renderer1.setAnimationLoop(() => {
+    renderer1.render(scene1, camera1)
+  });
+
+  const radioButtons = document.querySelectorAll('input[name="scene"]')
+  for (const radioButton of radioButtons) {
+    radioButton.addEventListener('change', (e) => {
+      scene1.remove(model1)
+      document.querySelector('#pose_loading').innerHTML = `<img src="./assets/icons/loading.svg" width="48" height="48">`
+      for (const rb of radioButtons) {rb.disabled = true}
+
+      let assetUrl = new URL('./assets/pose_generation/'+radioButton.value+'.glb', import.meta.url)
+      assetLoader1.load(assetUrl.href, gltf => {
+        model1 = gltf.scene
+        model1.rotateX(-Math.PI / 2)
+        scene1.add(model1)
+        document.querySelector('#pose_loading').innerHTML = ''
+        for (const rb of radioButtons) {rb.disabled = false}
+      }, undefined, (error) => {console.error(error)})
+    })
+  }
+  radioButtons[0].click()
+
+  // grasp generation for 3D object
+  let canvas2 = document.querySelector('#webgl_grasp')
+  let scene2 = new THREE.Scene()
+  let assetLoader2 = new GLTFLoader()
+  let model2
+
+  let camera2 = new THREE.PerspectiveCamera(45, 1.618 / 1.0, 0.1, 100)
+  camera2.position.set(0.25, 0.2, -0.25)
+  let grid2 = new THREE.GridHelper(30, 30)
+  scene2.add(camera2)
+  scene2.add(grid2)
+  for (let ax = 0; ax < 3; ax++) {
+    for (let i = 0; i <= 1; i++) {
+      let spotLight = new THREE.SpotLight(0xAAAAAA)
+      spotLight.position.set(
+        ax == 0 ? 50 * (i * 2 - 1): 0,
+        ax == 1 ? 50 * (i * 2 - 1): 0,
+        ax == 2 ? 50 * (i * 2 - 1): 0,
+      )
+      scene2.add(spotLight)
+    }
+  }
+
+  let controls2 = new OrbitControls(camera2, canvas2)
+  controls2.enableZoom = true
+  // controls2.enableDamping = true
+  controls2.object.position.set(camera2.position.x, camera2.position.y, camera2.position.z)
+  controls2.target = new THREE.Vector3(0, 0, 0)
+  controls2.update()
+
+  let renderer2 = new THREE.WebGLRenderer({
+      canvas: canvas2,
+      alpha: true,
+  })
+  renderer2.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+  renderer2.outputEncoding = THREE.sRGBEncoding
+  renderer2.setAnimationLoop(() => {
+    renderer2.render(scene2, camera2)
+  });
+
+  const objSel = document.querySelector('#objectSelector')
+  const samSel = document.querySelector('#sampleSelector')
+  objSel.value = 'ycb+baseball'
+  samSel.value = 'grasp_0'
+
+  function load_model2(e) {
+    if (objSel.value == '' || samSel.value == '') {
+      return
+    }
+    scene2.remove(model2)
+    document.querySelector('#grasp_loading').innerHTML = `<img src="./assets/icons/loading.svg" width="48" height="48">`
+    let assetUrl = new URL(`./assets/grasp_generation_color/${objSel.value}/${samSel.value}.glb`, import.meta.url)
+    assetLoader2.load(assetUrl.href, gltf => {
+      model2 = gltf.scene
+      scene2.add(model2)
+      document.querySelector('#grasp_loading').innerHTML = ''
+    }, undefined, (error) => {console.error(error)})
+  }
+
+  objSel.addEventListener('change', (e) => {samSel.value = ''})
+  samSel.addEventListener('change', load_model2)
+  load_model2()
+
+  // resize renderers
+  function resizeRenderers() {
+    let content_width = document.querySelector('#results').offsetWidth
+    renderer1.setSize(content_width, content_width / 1.618)
+    renderer2.setSize(content_width, content_width / 1.618)
+  }
+  window.addEventListener('resize', () => {
+    resizeRenderers()
+  })
+  resizeRenderers()
+</script>
+
 </html>
