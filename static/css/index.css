@@ -27,6 +27,21 @@ body {
   font-family: 'Google Sans', sans-serif;
 }
 
+.results-carousel > div {
+  text-align: center;
+}
+
+.results-carousel .results-item {
+  display: inline-block;
+  width: fit-content;
+  overflow: hidden;
+  padding: 0;
+  font-size: 0;
+}
+
+.results-carousel video {
+  margin: 0;
+}
 
 .publication-title {
 }
