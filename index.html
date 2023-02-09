@@ -55,6 +55,22 @@
       }
     }
   </script>
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
 </head>
 
 <body>
@@ -71,8 +87,8 @@
         <div class="has-text-centered" style="padding: 0 2em;">
 
           <p class="author">
-            <a href="https://buzz-beater.github.io/">Baoxiong Jia*</a><sup>1,3</sup><br>
-            <a href="https://yuliu.com">Yu Liu✶</a><sup>2,3</sup>,</span>
+            <a href="https://buzz-beater.github.io/">Baoxiong Jia*</a><sup>1,3</sup>,</span>
+            <a href="https://yuliu-ly.github.io">Yu Liu✶</a><sup>2,3</sup>,</span>
             <a href="https://siyuanhuang.com/">Siyuan Huang</a><sup>3</sup> &nbsp;&nbsp;&nbsp;
           </p>
 
@@ -84,8 +100,37 @@
             <sup>3</sup>Beijing Institute for General Artificial Intelligence (BIGAI)<br>
           </p>
 
-          <div style="margin: 1em 0; font-size: 1.1em;">
-            <p> <a href="https://arxiv.org/abs/2301.06015">arXiv</a> &nbsp;|&nbsp; <a href="https://github.com/scenediffuser/Scene-Diffuser">Code</a> &nbsp;|&nbsp; <a href="https://huggingface.co/spaces/SceneDiffuser/SceneDiffuserDemo">Huggingface Space</a></p>
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2210.08990.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2210.08990"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://github.com/YuLiu-LY/BO-QSA"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
           </div>
         </div>
 
@@ -129,31 +174,75 @@
         <hr>
 
         <div id="results" class="content-block">
-            <h2 class="sub-title has-text-centered">Results for real-world multi-object datasets</h2>
-  
-            <div class="task">
+            <h2 class="sub-title has-text-centered">Results on real-world datasets</h2>
+              <p style="margin: 0 1.5em; font-size: 0.8em; text-align:justify;">Note: Click the button to select a dataset for result visualization.</p>
+              <hr>
+              <div class="task">
               <div class="columns is-centered" style="position: relative;">
-                <div class="control" style="position: absolute; left: 3%;">
+                <div class="control" style="position: absolute; left: -18%;">
                   <label class="radio">
-                    <input value="Birds" type="radio" name="scene"> Birds
+                    <input value="Birds" type="radio" name="dataset"> Birds
                   </label>
                   <br>
                   <label class="radio">
-                    <input value="COCO" type="radio" name="scene"> COCO
+                    <input value="Dogs" type="radio" name="dataset"> Dogs
                   </label>
                   <br>
                   <label class="radio">
-                    <input value="YCB" type="radio" name="scene"> YCB
+                    <input value="Cars" type="radio" name="dataset"> Cars
                   </label>
                   <br>
                   <label class="radio">
-                    <input value="ScanNet" type="radio" name="scene"> ScanNet
+                    <input value="Flowers" type="radio" name="dataset"> Flowers
+                  </label>
+                  <br>
+                  <label class="radio">
+                    <input value="COCO" type="radio" name="dataset"> COCO
+                  </label>
+                  <br>
+                  <label class="radio">
+                    <input value="YCB" type="radio" name="dataset"> YCB
+                  </label>
+                  <br>
+                  <label class="radio">
+                    <input value="ScanNet" type="radio" name="dataset"> ScanNet
                   </label>
                 </div>
                 <div id="pose_loading" style="position: absolute; left: 50%; top: 45%;"></div>
-                <img poster="" src="./static/images/birds.png" id="birds" height="100%"></img>
+                <img src="./static/images/Birds.png" id="real-data" height="100%"></img>
               </div>
-              <p style="margin: 0 1.5em; font-size: 0.8em; text-align:justify;">Note: Click the radio button to select a dataset for result visualization.</p>
+            </div>
+          </div>
+
+        <hr>
+
+        <div id="results" class="content-block">
+            <h2 class="sub-title has-text-centered">Results on synthetic datasets</h2>
+              <p style="margin: 0 1.5em; font-size: 0.8em; text-align:justify;">Note: Click the button to select a dataset for result visualization.</p>
+              <hr>
+              <div class="task">
+              <div class="columns is-centered" style="position: relative;">
+                <div class="control" style="position: absolute; left: -18%;">
+                  <label class="radio">
+                    <input value="ShapeStacks" type="radio" name="dataset"> ShapeStacks
+                  </label>
+                  <br>
+                  <label class="radio">
+                    <input value="ObjectsRoom" type="radio" name="dataset"> ObjectsRoom
+                  </label>
+                  <br>
+                  <label class="radio">
+                    <input value="CLEVR-Tex" type="radio" name="dataset"> CLEVR-Tex
+                  </label>
+                  <br>
+                  <label class="radio">
+                    <input value="PTR" type="radio" name="dataset"> PTR
+                  </label>
+                  <br>
+                </div>
+                <div id="pose_loading" style="position: absolute; left: 50%; top: 45%;"></div>
+                <img src="./static/images/ShapeStacks.png" id="syn-data" height="100%"></img>
+              </div>
             </div>
           </div>
 
@@ -227,134 +316,34 @@
   import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
   import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js'
 
-  // pose generation in 3D scene
-  let canvas1 = document.querySelector('#webgl_pose')
-  let scene1 = new THREE.Scene()
-  let assetLoader1 = new GLTFLoader()
-  let model1
-
-  let camera1 = new THREE.PerspectiveCamera(45, 1.618 / 1.0, 0.1, 100)
-  camera1.position.set(4, 3, -3)
-  let grid1 = new THREE.GridHelper(30, 30)
-  scene1.add(camera1)
-  scene1.add(grid1)
-  for (let i = 0; i <= 1; i++) {
-    for (let k = 0; k <= 1; k++) {
-      let spotLight = new THREE.SpotLight(0xAAAAAA)
-      spotLight.position.set(50 * (i * 2 - 1), 100, 100 * (k * 2 - 1))
-      scene1.add(spotLight)
-    }
+  const dict = {
+    "Birds": 'real-data',
+    "Dogs": 'real-data',
+    "Cars": 'real-data',
+    "Flowers": 'real-data',
+    "COCO": 'real-data',
+    "YCB": 'real-data',
+    "ScanNet": 'real-data',
+    "ShapeStacks": 'syn-data',
+    "ObjectsRoom": 'syn-data',
+    "CLEVR-Tex": 'syn-data',
+    "PTR": 'syn-data',
   }
-
-  let controls1 = new OrbitControls(camera1, canvas1)
-  controls1.enableZoom = true
-  // controls2.enableDamping = true
-  controls1.object.position.set(camera1.position.x, camera1.position.y, camera1.position.z)
-  controls1.target = new THREE.Vector3(0, 0, 0)
-  controls1.update()
-
-  let renderer1 = new THREE.WebGLRenderer({
-      canvas: canvas1,
-      alpha: true,
-  })
-  renderer1.setPixelRatio(Math.min(window.devicePixelRatio, 2))
-  renderer1.outputEncoding = THREE.sRGBEncoding
-  renderer1.setAnimationLoop(() => {
-    renderer1.render(scene1, camera1)
-  });
-
-  const radioButtons = document.querySelectorAll('input[name="scene"]')
+  
+  // update img src when choose other dataset
+  const radioButtons = document.querySelectorAll('input[name="dataset"]')
   for (const radioButton of radioButtons) {
-    radioButton.addEventListener('change', (e) => {
-      scene1.remove(model1)
-      document.querySelector('#pose_loading').innerHTML = `<img src="./assets/icons/loading.svg" width="48" height="48">`
-      for (const rb of radioButtons) {rb.disabled = true}
-
-      let assetUrl = new URL('./assets/pose_generation/'+radioButton.value+'.glb', import.meta.url)
-      assetLoader1.load(assetUrl.href, gltf => {
-        model1 = gltf.scene
-        model1.rotateX(-Math.PI / 2)
-        scene1.add(model1)
-        document.querySelector('#pose_loading').innerHTML = ''
-        for (const rb of radioButtons) {rb.disabled = false}
-      }, undefined, (error) => {console.error(error)})
-    })
+    radioButton.addEventListener('change', show)
+    function show(){
+      let assetUrl = new URL('./static/images/'+ radioButton.value + '.png', import.meta.url)
+      document.getElementById(dict[radioButton.value]).src = assetUrl
+    }
   }
   radioButtons[0].click()
+  
 
-  // grasp generation for 3D object
-  let canvas2 = document.querySelector('#webgl_grasp')
-  let scene2 = new THREE.Scene()
-  let assetLoader2 = new GLTFLoader()
-  let model2
 
-  let camera2 = new THREE.PerspectiveCamera(45, 1.618 / 1.0, 0.1, 100)
-  camera2.position.set(0.25, 0.2, -0.25)
-  let grid2 = new THREE.GridHelper(30, 30)
-  scene2.add(camera2)
-  scene2.add(grid2)
-  for (let ax = 0; ax < 3; ax++) {
-    for (let i = 0; i <= 1; i++) {
-      let spotLight = new THREE.SpotLight(0xAAAAAA)
-      spotLight.position.set(
-        ax == 0 ? 50 * (i * 2 - 1): 0,
-        ax == 1 ? 50 * (i * 2 - 1): 0,
-        ax == 2 ? 50 * (i * 2 - 1): 0,
-      )
-      scene2.add(spotLight)
-    }
-  }
 
-  let controls2 = new OrbitControls(camera2, canvas2)
-  controls2.enableZoom = true
-  // controls2.enableDamping = true
-  controls2.object.position.set(camera2.position.x, camera2.position.y, camera2.position.z)
-  controls2.target = new THREE.Vector3(0, 0, 0)
-  controls2.update()
-
-  let renderer2 = new THREE.WebGLRenderer({
-      canvas: canvas2,
-      alpha: true,
-  })
-  renderer2.setPixelRatio(Math.min(window.devicePixelRatio, 2))
-  renderer2.outputEncoding = THREE.sRGBEncoding
-  renderer2.setAnimationLoop(() => {
-    renderer2.render(scene2, camera2)
-  });
-
-  const objSel = document.querySelector('#objectSelector')
-  const samSel = document.querySelector('#sampleSelector')
-  objSel.value = 'ycb+baseball'
-  samSel.value = 'grasp_0'
-
-  function load_model2(e) {
-    if (objSel.value == '' || samSel.value == '') {
-      return
-    }
-    scene2.remove(model2)
-    document.querySelector('#grasp_loading').innerHTML = `<img src="./assets/icons/loading.svg" width="48" height="48">`
-    let assetUrl = new URL(`./assets/grasp_generation_color/${objSel.value}/${samSel.value}.glb`, import.meta.url)
-    assetLoader2.load(assetUrl.href, gltf => {
-      model2 = gltf.scene
-      scene2.add(model2)
-      document.querySelector('#grasp_loading').innerHTML = ''
-    }, undefined, (error) => {console.error(error)})
-  }
-
-  objSel.addEventListener('change', (e) => {samSel.value = ''})
-  samSel.addEventListener('change', load_model2)
-  load_model2()
-
-  // resize renderers
-  function resizeRenderers() {
-    let content_width = document.querySelector('#results').offsetWidth
-    renderer1.setSize(content_width, content_width / 1.618)
-    renderer2.setSize(content_width, content_width / 1.618)
-  }
-  window.addEventListener('resize', () => {
-    resizeRenderers()
-  })
-  resizeRenderers()
 </script>
 
 </html>
