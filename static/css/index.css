@@ -31,6 +31,10 @@ body {
   text-align: center;
 }
 
+.results-carousel image {
+  margin: 0;
+}
+
 .results-carousel .results-item {
   display: inline-block;
   width: fit-content;
