@@ -209,7 +209,7 @@
                   </label>
                 </div>
                 <div id="pose_loading" style="position: absolute; left: 50%; top: 45%;"></div>
-                <img src="./static/images/Birds.png" id="real-data" height="100%"></img>
+                <img src="./static/images/Birds_1.png" id="real-data" height="100%"></img>
               </div>
             </div>
           </div>
@@ -241,7 +241,7 @@
                   <br>
                 </div>
                 <div id="pose_loading" style="position: absolute; left: 50%; top: 45%;"></div>
-                <img src="./static/images/ShapeStacks.png" id="syn-data" height="100%"></img>
+                <img src="./static/images/ShapeStacks_1.png" id="syn-data" height="100%"></img>
               </div>
             </div>
           </div>
@@ -335,7 +335,7 @@
   for (const radioButton of radioButtons) {
     radioButton.addEventListener('change', show)
     function show(){
-      let assetUrl = new URL('./static/images/'+ radioButton.value + '.png', import.meta.url)
+      let assetUrl = new URL('./static/images/'+ radioButton.value + '_1.png', import.meta.url)
       document.getElementById(dict[radioButton.value]).src = assetUrl
     }
   }
